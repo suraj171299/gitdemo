@@ -15,12 +15,14 @@ function onSubmit(e){
     }else{
         const li = document.createElement('li')
         li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value} `))
-
         userList.appendChild(li)
-        const username = nameInput.value
-        const email = emailInput.value
-        localStorage.setItem('username', username)
-        localStorage.setItem('useremail', email)
+        const myObj = {
+            username : nameInput.value,
+            email : emailInput.value
+        }
+        localStorage.setItem('userDetails', JSON.stringify(myObj))
+        const o = localStorage.getItem('userDetails')
+        console.log(o);
         //CLear fields
         nameInput.value = ''
         emailInput.value = ''
