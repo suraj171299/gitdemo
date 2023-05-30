@@ -16,13 +16,19 @@ function onSubmit(e){
         const li = document.createElement('li')
         li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value} `))
         userList.appendChild(li)
+        var deleteBtn = document.createElement('button')
+        deleteBtn.className='btn btn-sm float-right delete'
+        deleteBtn.appendChild(document.createTextNode('Delete'))
+        deleteBtn.onclick=()=>{
+            localStorage.removeItem(myObj.email)
+            userList.removeChild(li)
+        }
+        li.appendChild(deleteBtn)
         const myObj = {
             username : nameInput.value,
             email : emailInput.value
         }
-        localStorage.setItem(JSON.stringify(myObj.email), JSON.stringify(myObj))
-        const o = localStorage.getItem('userDetails')
-        console.log(o);
+        localStorage.setItem(JSON.parse(JSON.stringify(myObj.email)), JSON.stringify(myObj))
         //CLear fields
         nameInput.value = ''
         emailInput.value = ''
