@@ -20,7 +20,7 @@ function onSubmit(e){
             username : nameInput.value,
             email : emailInput.value
         }
-        localStorage.setItem('userDetails', JSON.stringify(myObj))
+        localStorage.setItem(JSON.stringify(myObj.email), JSON.stringify(myObj))
         const o = localStorage.getItem('userDetails')
         console.log(o);
         //CLear fields
