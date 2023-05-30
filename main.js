@@ -24,6 +24,16 @@ function onSubmit(e){
             userList.removeChild(li)
         }
         li.appendChild(deleteBtn)
+        var editBtn = document.createElement('button')
+        editBtn.className='btn btn-sm float-right delete'
+        editBtn.appendChild(document.createTextNode('Edit'))
+        editBtn.onclick=()=>{
+            localStorage.removeItem(myObj.email)
+            userList.removeChild(li)
+            nameInput.value = myObj.username
+            emailInput.value = myObj.email
+        }
+        li.appendChild(editBtn)
         const myObj = {
             username : nameInput.value,
             email : emailInput.value
