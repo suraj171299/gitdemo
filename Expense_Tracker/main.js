@@ -4,7 +4,7 @@ const expense_description = document.querySelector("#descrip");
 const expense_category = document.querySelector("#category");
 const msg = document.querySelector(".msg");
 const userList = document.querySelector("#users");
-
+console.log(myForm)
 myForm.addEventListener("submit", onSubmit);
 function onSubmit(e) {
   e.preventDefault();
